@@ -8,6 +8,17 @@ namespace BehaviorTreeAIExample
     {
         public List<IBehaviorTreeNode> NodeList { get; set; }
 
+        public BehaviorTreeSequence()
+        {
+            NodeList = new List<IBehaviorTreeNode>();
+        }
+
+        public BehaviorTreeSequence Add(IBehaviorTreeNode node)
+        {
+            NodeList.Add(node);
+            return this;
+        }
+
         public bool Act()
         {
             for (var i = 0; i < NodeList.Count; i++)

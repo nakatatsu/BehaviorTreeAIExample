@@ -8,8 +8,8 @@ namespace BehaviorTreeAIExample
 {
     public class Charactor
     {
-        public readonly int InitialLife = 5;
-        public readonly int ReproductionFoods = 3;
+        public readonly int InitialLife = 1000;
+        public readonly int ReproductionFoods = 2000;
         public ReadOnlyReactiveProperty<bool> IsDead;
         public ReactiveProperty<int> Life;
 
@@ -17,6 +17,11 @@ namespace BehaviorTreeAIExample
         {
             Life = new ReactiveProperty<int>(InitialLife);
             IsDead = Life.Select(x => (x <= 0)).ToReadOnlyReactiveProperty();
+        }
+
+        public void Tictac()
+        {
+            Life.Value--;
         }
 
         public void Eat(Food food)

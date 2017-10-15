@@ -8,9 +8,7 @@ namespace BehaviorTreeAIExample
 {
     public class MoveAction : ICharactorAction
     {
-        public bool Act()
-        {
-            return true;
-        }
+        public int X;
+        public int Y;
     }
 }

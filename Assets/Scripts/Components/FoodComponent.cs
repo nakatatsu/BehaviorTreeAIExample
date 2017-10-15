@@ -10,13 +10,13 @@ namespace BehaviorTreeAIExample
     {
         public Food Instance { get; private set; }
 
-        void Init(Food food)
+        public void Init(Food food)
         {
             Instance = food;
 
             // 食べられたら消える。
             Instance.IsEated
-                    .Subscribe(_ => Destroy(this))
+                    .Subscribe(_ => Destroy(gameObject))
                     .AddTo(gameObject);
         }
 

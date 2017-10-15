@@ -8,7 +8,7 @@ namespace BehaviorTreeAIExample
 {
     public class Food
     {
-        public readonly int MaxVolume = 5;
+        public readonly int MaxVolume = 500;
         public ReactiveProperty<int> Volume;
         public ReadOnlyReactiveProperty<bool> IsEated;
         public ReactiveProperty<int> Life;
