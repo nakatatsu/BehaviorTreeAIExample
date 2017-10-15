@@ -30,7 +30,9 @@ namespace BehaviorTreeAIExample
                 })
                 .AddTo(gameObject);
 
-//            Instance.IsDead.Subscribe(_ => Destroy(gameObject));
+            Instance.IsDead
+                    .Where(_ => Instance.IsDead.Value)
+                    .Subscribe(_ => Destroy(gameObject));
 
             // 行動イベントの監視。
             ActionStream.Where(_ => !Instance.IsDead.Value)

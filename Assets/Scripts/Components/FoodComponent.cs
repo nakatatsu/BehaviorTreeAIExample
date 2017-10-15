@@ -16,6 +16,7 @@ namespace BehaviorTreeAIExample
 
             // 食べられたら消える。
             Instance.IsEated
+                    .Where(isEated => isEated)
                     .Subscribe(_ => Destroy(gameObject))
                     .AddTo(gameObject);
         }

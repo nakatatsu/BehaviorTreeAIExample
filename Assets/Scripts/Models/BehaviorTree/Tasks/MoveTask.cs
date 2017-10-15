@@ -33,7 +33,7 @@ namespace BehaviorTreeAIExample
             for (var i = 0; i < FoodsPosition.Count; i++)
             {
                 var range = MyPosition.GetRange(FoodsPosition[i]);
-                if (minRange < range)
+                if (i == 0 || range < minRange)
                 {
                     minRange = range;
                     Index = i;

@@ -23,14 +23,14 @@ namespace BehaviorTreeAIExample
 
             // マップ上のFoodが足りなくなったら配置する。
             GameObject[] foods = GameObject.FindGameObjectsWithTag("Food");
-            if (foods.Length < 1)
+            if (foods.Length < 3)
             {
                 int x = random.Next(-CanvasSizeX / 2, CanvasSizeX / 2);
                 int y = random.Next(-CanvasSizeY / 2, CanvasSizeY / 2);
                 var newFood = InstantiateChild("Food", new Vector2(x, y), gameObject.transform);
                 var foodComponent = newFood.AddComponent<FoodComponent>();
 
-                foodComponent.Init(new Food(500));
+                foodComponent.Init(new Food());
             }
         }
 
