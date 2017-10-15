@@ -13,13 +13,13 @@ namespace BehaviorTreeAIExample
     {
         Position MyPosition;
         List<Position> FoodsPosition;
-        Subject<ICharactorAction> EventListener;
+        Subject<ICharactorAction> EventPublisher;
 
-        public MoveTask(Position myPosition, List<Position> foodsPosition, Subject<ICharactorAction> eventListener)
+        public MoveTask(Position myPosition, List<Position> foodsPosition, Subject<ICharactorAction> eventPublisher)
         {
             MyPosition = myPosition;
             FoodsPosition = foodsPosition;
-            EventListener = eventListener;
+            EventPublisher = eventPublisher;
         }
 
 
@@ -41,7 +41,7 @@ namespace BehaviorTreeAIExample
             }
 
             var action = new MoveAction() { X = JudgeStopOrMove(MyPosition.X, FoodsPosition[Index].X), Y = JudgeStopOrMove(MyPosition.Y, FoodsPosition[Index].Y) };
-            EventListener.OnNext(action);
+            EventPublisher.OnNext(action);
 
             return true;
         }
